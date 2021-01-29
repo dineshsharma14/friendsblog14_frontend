@@ -15,3 +15,11 @@ title {
     padding: 10px;
     padding-top: 10px;
 }
+
+.new-post {
+    float: right;
+    text-decoration: none;
+    color: royalblue;
+    padding: 10px;
+    padding-top: 10px;
+}

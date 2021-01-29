@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { LoginPayload } from '../login-payload';
 
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginPayload: LoginPayload;
 
-  constructor(private _authService: AuthService) {
+  constructor(private _authService: AuthService, private _router: Router) {
     this.loginForm = new FormGroup(
       {
         username: new FormControl(),
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
     this._authService.login(this.loginPayload).subscribe(data => {
       if (data) {
         console.log("login success");
+        this._router.navigateByUrl('/home');
       } else {
         console.log("login failed");
       }

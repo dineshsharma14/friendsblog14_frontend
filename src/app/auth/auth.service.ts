@@ -29,4 +29,8 @@ export class AuthService {
       })
     );
   }
+
+  isAuthenticated(): Boolean {
+    return this._localStorageService.retrieve('username') != null;
+  }
 }

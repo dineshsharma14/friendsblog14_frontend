@@ -1,18 +1,32 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { RegisterPayload } from './register-payload';
 import { Observable } from 'rxjs';
-
+import { LoginPayload } from './login-payload';
+import { JwtAuthResponse } from './jwt-auth-response';
+import { LocalStorageService } from 'ngx-webstorage';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private url: string = "http://localhost:8082/";
+  private _url: string = "http://localhost:8082/api/auth/";
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient,
+    private _localStorageService: LocalStorageService) { }
 
   register(registerPayload: RegisterPayload): Observable<any> {
-    return this._httpClient.post(this.url + "signup", registerPayload);
+    return this._httpClient.post(this._url + "signup", registerPayload);
+  }
+
+  login(loginPayload: LoginPayload): Observable<boolean> {
+    return this._httpClient.post<JwtAuthResponse>(this._url + "login", loginPayload).pipe(
+      map(data => {
+        this._localStorageService.store('authenticationToken', data.authenticationToken);
+        this._localStorageService.store('username', data.username);
+        return true; // component will receive true if login is successful and take user to home page
+      })
+    );
   }
 }

@@ -9,7 +9,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterSuccessComponent } from './auth/register-success/register-success.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: 'register', component: RegisterComponent }
-    ])
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register-sucess', component: RegisterSuccessComponent }
+    ]),
+    NgxWebstorageModule.forRoot()
 
   ],
   providers: [],

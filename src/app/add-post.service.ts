@@ -10,6 +10,6 @@ export class AddPostService {
   constructor(private _httpClient: HttpClient) { }
 
   addPost(postPayload: PostPayload) {
-    return this._httpClient.post('http://localhost:8082/api/posts', postPayload);
+    return this._httpClient.post('http://localhost:8082/api/posts/', postPayload);
   }
 }

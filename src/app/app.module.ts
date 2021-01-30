@@ -33,6 +33,7 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
+      { path: '', component: HomeComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register-sucess', component: RegisterSuccessComponent },

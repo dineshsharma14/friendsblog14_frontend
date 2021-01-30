@@ -17,4 +17,8 @@ export class AddPostService {
   getAllPosts(): Observable<Array<PostPayload>> {
     return this._httpClient.get<Array<PostPayload>>("http://localhost:8082/api/posts/all");
   }
+
+  getPost(paramLink: number): Observable<PostPayload> {
+    return this._httpClient.get<PostPayload>("http://localhost:8082/api/posts/get/" + paramLink);
+  }
 }

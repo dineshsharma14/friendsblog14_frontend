@@ -2,15 +2,24 @@
     <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <div class="form-group">
-            <label class="sr-nly" for="inputUsername">Username</label>
+            <label for="inputUsername">Username</label>
             <input type="text" id="inputUsername" [formControlName]="'username'" class="form-control"
                 placeholder="Username" required="" autofocus="">
+            <div *ngIf="loginForm.controls.username.touched && !loginForm.controls.username.valid"
+                class="alert alert-danger">
+                Username is required!
+            </div>
         </div>
         <div class="form-group">
-            <label class="sr-nly" for="inputPassword">Password</label>
+            <label for="inputPassword">Password</label>
             <input type="password" id="inputPassword" [formControlName]="'password'" class="form-control"
                 placeholder="Password" required="">
+            <div *ngIf="loginForm.controls.password.touched && !loginForm.controls.password.valid"
+                class="alert alert-danger">
+                Password is required!
+            </div>
         </div>
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Sign in</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit"
+            [disabled]="!loginForm.controls.username.valid || !loginForm.controls.password.valid">Sign in</button>
     </form>
 </div>

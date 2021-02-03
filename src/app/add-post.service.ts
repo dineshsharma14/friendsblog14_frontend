@@ -11,7 +11,7 @@ export class AddPostService {
 
   baseUrl = environment.baseUrl;
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(public _httpClient: HttpClient) { }
 
   addPost(postPayload: PostPayload) {
     return this._httpClient.post(this.baseUrl + 'api/posts/', postPayload);

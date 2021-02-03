@@ -16,7 +16,7 @@ export class AddPostComponent implements OnInit {
   body = new FormControl('');
   postPayload: PostPayload;
 
-  constructor(private _addPostService: AddPostService, private _router: Router) {
+  constructor(public _addPostService: AddPostService, public _router: Router) {
     this.addPostForm = new FormGroup(
       {
         title: this.title,

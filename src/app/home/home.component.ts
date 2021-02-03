@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   posts: Observable<Array<PostPayload>>;
 
-  constructor(private _postService: AddPostService) { }
+  constructor(public _postService: AddPostService) { }
 
   ngOnInit() {
     this.posts = this._postService.getAllPosts();

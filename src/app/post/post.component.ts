@@ -13,7 +13,7 @@ export class PostComponent implements OnInit {
   post: PostPayload = new PostPayload();
   paramLink: number;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _postService: AddPostService) {
+  constructor(public _activatedRoute: ActivatedRoute, public _postService: AddPostService) {
     this.post.content = "";
     this.post.title = "";
     this.post.username = "";

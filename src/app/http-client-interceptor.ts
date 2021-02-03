@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 @Injectable()
 export class HttpClientInterceptor implements HttpInterceptor {
 
-    constructor(private _localStorage: LocalStorageService) {
+    constructor(public _localStorage: LocalStorageService) {
 
     }
 

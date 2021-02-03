@@ -14,10 +14,10 @@ export class AuthService {
 
   baseUrl = environment.baseUrl;
 
-  private _url: string = this.baseUrl + "api/auth/";
+  public _url: string = this.baseUrl + "api/auth/";
 
-  constructor(private _httpClient: HttpClient,
-    private _localStorageService: LocalStorageService) { }
+  constructor(public _httpClient: HttpClient,
+    public _localStorageService: LocalStorageService) { }
 
   register(registerPayload: RegisterPayload): Observable<any> {
     return this._httpClient.post(this._url + "signup", registerPayload);

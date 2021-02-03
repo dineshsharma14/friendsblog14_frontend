@@ -6,7 +6,7 @@ import { LoginPayload } from './login-payload';
 import { JwtAuthResponse } from './jwt-auth-response';
 import { LocalStorageService } from 'ngx-webstorage';
 import { map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })

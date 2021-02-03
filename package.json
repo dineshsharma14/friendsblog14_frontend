@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "heroku-postbuild": "ng build --prod && npm install -g http-server-spa",
+    "start": "http-server-spa dist/friends-blog-frontend index.html $PORT",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -25,7 +25,7 @@
     "@tinymce/tinymce-angular": "^3.5.0",
     "bootstrap": "^4.3.1",
     "express": "^4.17.1",
-    "jquery": "^1.9.1",
+    "jquery": "^3.1.1",
     "ngx-webstorage": "^3.0.2",
     "path": "^0.12.7",
     "popper.js": "^1.16.1",

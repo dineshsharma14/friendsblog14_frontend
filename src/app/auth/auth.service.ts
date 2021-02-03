@@ -6,12 +6,15 @@ import { LoginPayload } from './login-payload';
 import { JwtAuthResponse } from './jwt-auth-response';
 import { LocalStorageService } from 'ngx-webstorage';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private _url: string = "http://localhost:8082/api/auth/";
+  baseUrl = environment.baseUrl;
+
+  private _url: string = this.baseUrl + "api/auth/";
 
   constructor(private _httpClient: HttpClient,
     private _localStorageService: LocalStorageService) { }
